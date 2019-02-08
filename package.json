@@ -1,0 +1,24 @@
+{
+  "name": "Assignment-2",
+  "version": "1.0.0",
+  "description": "Assignment 2 for IMD3901- Multi-Device Interaction",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colemanky/Assignment-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colemanky/Assignment-2/issues"
+  },
+  "homepage": "https://github.com/colemanky/Assignment-2#readme",
+  "dependencies": {
+    "aframe": "^0.8.2",
+    "express": "^4.16.4"
+  }
+}

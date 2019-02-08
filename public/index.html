@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drum Kit Simulator</title>
+        <meta name="description" content="Drum Kit Simulator">
+        <script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
+        <script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
+        <script src="/js/drum1.js"></script> 
+        <script src="/js/drum2.js"></script> 
+        <script src="/js/drum3.js"></script> 
+        <script src="/js/drum4.js"></script> 
+        <script src="/js/drum5.js"></script> 
+        <script src="/js/drum6.js"></script> 
+        <script src="/js/drum7.js"></script> 
+        <script src="/js/cymbal1.js"></script> 
+    </head>
+    <body>
+        <!-- https://aframe.io/docs/0.7.0/components/gltf-model.html#sidebar -->
+        <a-scene shadow="type:basic;">
+                <a-assets timeout="3000">
+                    <img id="skymap" src="/assets/textures/CloudySky.jpg">
+                    <a-asset-item id="Stage-mtl" src="/assets/models/Stage.mtl"></a-asset-item>
+                    <a-asset-item id="Stadium-mtl" src="/assets/models/Stadium.mtl"></a-asset-item>
+
+                    <!-- Set Up Kit -->
+                    <a-asset-item id="HiHat-mtl" src="/assets/models/Kit/HiHat.mtl"></a-asset-item>
+                    <a-asset-item id="HiHat-obj" src="/assets/models/Kit/HiHat.obj"></a-asset-item> 
+                    <a-asset-item id="Crash1-mtl" src="/assets/models/Kit/Crash1.mtl"></a-asset-item>
+                    <a-asset-item id="Crash1-obj" src="/assets/models/Kit/Crash1.obj"></a-asset-item>
+                    <a-asset-item id="Crash2-mtl" src="/assets/models/Kit/Crash2.mtl"></a-asset-item>
+                    <a-asset-item id="Crash2-obj" src="/assets/models/Kit/Crash2.obj"></a-asset-item>
+                    <a-asset-item id="FloorToms-mtl" src="/assets/models/Kit/FloorToms.mtl"></a-asset-item>
+                    <a-asset-item id="FloorToms-obj" src="/assets/models/Kit/FloorToms.obj"></a-asset-item>
+                    <a-asset-item id="Hardware-mtl" src="/assets/models/Kit/Hardware.mtl"></a-asset-item>
+                    <a-asset-item id="Hardware-obj" src="/assets/models/Kit/Hardware.obj"></a-asset-item>
+                    <a-asset-item id="Kick1-mtl" src="/assets/models/Kit/Kick1.mtl"></a-asset-item>
+                    <a-asset-item id="Kick1-obj" src="/assets/models/Kit/Kick1.obj"></a-asset-item>
+                    <a-asset-item id="Kick2-mtl" src="/assets/models/Kit/Kick2.mtl"></a-asset-item>
+                    <a-asset-item id="Kick2-obj" src="/assets/models/Kit/Kick2.obj"></a-asset-item>
+                    <a-asset-item id="Ride-mtl" src="/assets/models/Kit/Ride.mtl"></a-asset-item>
+                    <a-asset-item id="Ride-obj" src="/assets/models/Kit/Ride.obj"></a-asset-item>
+                    <a-asset-item id="Snare-mtl" src="/assets/models/Kit/Snare.mtl"></a-asset-item>
+                    <a-asset-item id="Snare-obj" src="/assets/models/Kit/Snare.obj"></a-asset-item>
+                    <a-asset-item id="Tom1-mtl" src="/assets/models/Kit/Tom1.mtl"></a-asset-item>
+                    <a-asset-item id="Tom1-obj" src="/assets/models/Kit/Tom1.obj"></a-asset-item>
+                    <a-asset-item id="Tom2-mtl" src="/assets/models/Kit/Tom2.mtl"></a-asset-item>
+                    <a-asset-item id="Tom2-obj" src="/assets/models/Kit/Tom2.obj"></a-asset-item>
+                    <a-asset-item id="Tom3-mtl" src="/assets/models/Kit/Tom3.mtl"></a-asset-item>
+                    <a-asset-item id="Tom3-obj" src="/assets/models/Kit/Tom3.obj"></a-asset-item>
+
+                    <a-asset-item crossorigin="anonymous" id="Kick1" src="/assets/sound/Kit1/Kick 1.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Kick2" src="/assets/sound/Kit1/Kick 2.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Snare" src="/assets/sound/Kit1/Snare.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Tom1" src="/assets/sound/Kit1/Tom 1.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Tom2" src="/assets/sound/Kit1/Tom 2.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Tom3" src="/assets/sound/Kit1/Tom 3.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="FloorTom" src="/assets/sound/Kit1/FloorTom.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Hi-Hat" src="/assets/sound/Kit1/Hi-Hat.wav" response-type="arraybuffer"></a-asset-item>
+
+
+                    
+
+                    <a-asset-item id="Stage-obj" src="/assets/models/Stage.obj"></a-asset-item>  
+                    <a-asset-item id="Stadium-obj" src="/assets/models/Stadium.obj"></a-asset-item> 
+                </a-assets>
+            
+                <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
+                <a-entity light="type: ambient; intensity: 1.0; color:#bbb;"></a-entity>
+            
+                <a-entity position="0.7 1.5 -0.9" rotation="0 180 0">
+                        <a-camera><a-cursor color = "#FF0000"/></a-camera>
+                </a-entity>
+                <a-entity obj-model="obj:#Stage-obj; mtl:#Stage-mtl" position="0 0 0" scale="1 1 1" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity obj-model="obj:#Stadium-obj; mtl:#Stadium-mtl" position="0 -32.5 0" scale="1 1 1" rotation="0 90 0" shadow="cast:true; receive:true;"></a-entity>
+                
+                <!-- Set Up Kit -->
+                <a-entity cymbal1 obj-model="obj:#HiHat-obj; mtl:#HiHat-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity obj-model="obj:#Crash1-obj; mtl:#Crash1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity obj-model="obj:#Crash2-obj; mtl:#Crash2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum7 obj-model="obj:#FloorToms-obj; mtl:#FloorToms-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity obj-model="obj:#Hardware-obj; mtl:#Hardware-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum1 obj-model="obj:#Kick1-obj; mtl:#Kick1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum2 obj-model="obj:#Kick2-obj; mtl:#Kick2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity obj-model="obj:#Ride-obj; mtl:#Ride-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum3 obj-model="obj:#Snare-obj; mtl:#Snare-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum4 obj-model="obj:#Tom1-obj; mtl:#Tom1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum5 obj-model="obj:#Tom2-obj; mtl:#Tom2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity drum6 obj-model="obj:#Tom3-obj; mtl:#Tom3-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+
+                <!-- sound entities we will query and play in components -->
+                <a-entity id="KickSound1" sound="src:#Kick1"></a-entity>
+                <a-entity id="KickSound2" sound="src:#Kick2"></a-entity>
+                <a-entity id="SnareSound" sound="src:#Snare"></a-entity>
+                <a-entity id="Tom1Sound" sound="src:#Tom1"></a-entity>
+                <a-entity id="Tom2Sound" sound="src:#Tom2"></a-entity>
+                <a-entity id="Tom3Sound" sound="src:#Tom3"></a-entity>
+                <a-entity id="FloorTomSound" sound="src:#FloorTom"></a-entity>
+                <a-entity id="Hi-HatSound" sound="src:#Hi-Hat"></a-entity>
+
+                <a-entity id="sky"
+                    geometry="primitive:sphere; radius:500;"
+                    material="shader:flat; src:#skymap; side:back; height:2048; width:2048" rotation="0 180 0"
+            ></a-entity>
+
+            </a-scene>
+    </body>
+</html>
