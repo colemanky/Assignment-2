@@ -1,8 +1,8 @@
-AFRAME.registerComponent('cymbal3', {
+AFRAME.registerComponent('cymbal4', {
     schema: {},
     init : function() {
         const Context_AF = this;
-        Context_AF.soundElem = document.querySelector('#Crash2Sound');
+        Context_AF.soundElem = document.querySelector('#RideSound');
 
         Context_AF.el.addEventListener('click', function(event) {
             console.log("click");

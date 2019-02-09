@@ -13,6 +13,9 @@
         <script src="/js/drum6.js"></script> 
         <script src="/js/drum7.js"></script> 
         <script src="/js/cymbal1.js"></script> 
+        <script src="/js/cymbal2.js"></script> 
+        <script src="/js/cymbal3.js"></script> 
+        <script src="/js/cymbal4.js"></script> 
     </head>
     <body>
         <!-- https://aframe.io/docs/0.7.0/components/gltf-model.html#sidebar -->
@@ -56,8 +59,9 @@
                     <a-asset-item crossorigin="anonymous" id="Tom3" src="/assets/sound/Kit1/Tom 3.wav" response-type="arraybuffer"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="FloorTom" src="/assets/sound/Kit1/FloorTom.wav" response-type="arraybuffer"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="Hi-Hat" src="/assets/sound/Kit1/Hi-Hat.wav" response-type="arraybuffer"></a-asset-item>
-
-
+                    <a-asset-item crossorigin="anonymous" id="Crash1" src="/assets/sound/Kit1/Crash 1.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Crash2" src="/assets/sound/Kit1/Crash 2.wav" response-type="arraybuffer"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="Ride" src="/assets/sound/Kit1/Ride.wav" response-type="arraybuffer"></a-asset-item>
                     
 
                     <a-asset-item id="Stage-obj" src="/assets/models/Stage.obj"></a-asset-item>  
@@ -75,13 +79,13 @@
                 
                 <!-- Set Up Kit -->
                 <a-entity cymbal1 obj-model="obj:#HiHat-obj; mtl:#HiHat-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
-                <a-entity obj-model="obj:#Crash1-obj; mtl:#Crash1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
-                <a-entity obj-model="obj:#Crash2-obj; mtl:#Crash2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity cymbal2 obj-model="obj:#Crash1-obj; mtl:#Crash1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity cymbal3 obj-model="obj:#Crash2-obj; mtl:#Crash2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity drum7 obj-model="obj:#FloorToms-obj; mtl:#FloorToms-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity obj-model="obj:#Hardware-obj; mtl:#Hardware-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity drum1 obj-model="obj:#Kick1-obj; mtl:#Kick1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity drum2 obj-model="obj:#Kick2-obj; mtl:#Kick2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
-                <a-entity obj-model="obj:#Ride-obj; mtl:#Ride-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
+                <a-entity cymbal4 obj-model="obj:#Ride-obj; mtl:#Ride-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity drum3 obj-model="obj:#Snare-obj; mtl:#Snare-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity drum4 obj-model="obj:#Tom1-obj; mtl:#Tom1-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
                 <a-entity drum5 obj-model="obj:#Tom2-obj; mtl:#Tom2-mtl" position="0 1.45 0" scale="0.003 0.003 0.003" shadow="cast:true; receive:true;"></a-entity>
@@ -96,12 +100,13 @@
                 <a-entity id="Tom3Sound" sound="src:#Tom3"></a-entity>
                 <a-entity id="FloorTomSound" sound="src:#FloorTom"></a-entity>
                 <a-entity id="Hi-HatSound" sound="src:#Hi-Hat"></a-entity>
+                <a-entity id="Crash1Sound" sound="src:#Crash1"></a-entity>
+                <a-entity id="Crash2Sound" sound="src:#Crash2"></a-entity>
+                <a-entity id="RideSound" sound="src:#Ride"></a-entity>
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
                     material="shader:flat; src:#skymap; side:back; height:2048; width:2048" rotation="0 180 0"
             ></a-entity>
-
-            </a-scene>
     </body>
 </html>
